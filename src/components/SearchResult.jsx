@@ -16,7 +16,7 @@ const SearchResult = ({ data }) => {
 
   const verbData = findPartOfSpeen("verb");
 
-  const { text, audio } = checkPropertyValue(phonetics);
+  const phoneticsData = checkPropertyValue(phonetics);
 
   const playAudio = (audio) => {
     const audioToPlay = new Audio(audio);
@@ -30,13 +30,14 @@ const SearchResult = ({ data }) => {
           <h1 className="text-darkGray dark:text-white text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold">
             {word}
           </h1>
-          {text && (
-            <p className="text-purple text-lg mt-2 font-semibold">{text}</p>
-          )}
+
+          <p className="text-purple text-lg mt-2 font-semibold">
+            {phoneticsData?.text}
+          </p>
         </header>
         <button
           className="outline-none border-none focus-within:outline-none"
-          onClick={() => playAudio(audio)}
+          onClick={() => playAudio(phoneticsData?.audio)}
         >
           <img src={playIcon} alt="play audio icon" />
         </button>
