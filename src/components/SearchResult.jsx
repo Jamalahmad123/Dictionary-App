@@ -56,7 +56,7 @@ const SearchResult = ({ data }) => {
             </li>
           ))}
         </ul>
-        {nounData.synonyms.length !== 0 && (
+        {nounData?.synonyms.length !== 0 && (
           <div className="mt-8 flex items-start gap-6">
             <p className="text-gray-500 text-lg sm:text-xl">Synonyms</p>
             <ul className="flex items-center flex-wrap gap-3">
@@ -91,13 +91,13 @@ const SearchResult = ({ data }) => {
         </div>
       )}
       <div className="border-t-[1.7px] border-[#e9e9e9] dark:border-[#3a3a3a]">
-        <p className="pt-6">
+        <p className="pt-6 flex items-start gap-2 flex-wrap">
           <span className="text-gray-500 border-b border-gray-500">Soure</span>
           <a
             href={sourceUrls?.[0]}
             target="_blank"
             rel="noreferrel"
-            className="ml-5 text-gray-500 dark:text-white"
+            className="text-gray-500 dark:text-white"
           >
             {sourceUrls?.[0]}
             <img src={linkIcon} alt="icon link" className="inline-block ml-3" />
